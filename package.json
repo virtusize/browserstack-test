@@ -7,7 +7,7 @@
     "bin": "bin"
   },
   "dependencies": {
-    "browserstack-workers": "=0.1.5",
+    "browserstack-workers": "=0.1.6",
     "mocha": "=1.12.0",
     "optimist": "=0.6.0"
   },
