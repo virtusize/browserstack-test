@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var BrowserStackTest = require('../lib/index'),
+    optimist = require('optimist'),
+    fs = require('fs'),
+    argv = optimist
+      .usage('usage: $0 [options] url')
+
+      .demand('b')
+      .alias('b', 'browsers')
+      .describe('b', 'A JSON file containing an array of browsers to test on')
+
+      .demand('u')
+      .alias('u', 'username')
+      .describe('u', 'Your BrowserStack username')
+
+      .demand('p')
+      .alias('p', 'password')
+      .describe('p', 'Your BrowserStack password')
+
+      .demand('k')
+      .alias('k', 'key')
+      .describe('k', 'Your BrowserStack API key')
+
+      .boolean('h')
+      .alias('h', 'help')
+      .describe('h', 'Display this message')
+      .argv;
+
+if (argv.h) {
+  optimist.showHelp();
+} else {
+  var browsers = JSON.parse(fs.readFileSync(argv.b)),
+      client = new BrowserStackTest(argv.u, argv.p, argv.k);
+
+  client.createTest(argv._[0], {}, function (err, test) {
+    if (err) {
+      console.log(err);
+    } else {
+      browsers.forEach(function (browser) {
+        test.addBrowser(browser);
+      });
+      test.run();
+    }
+  });
+}

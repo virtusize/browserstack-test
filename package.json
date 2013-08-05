@@ -1,0 +1,23 @@
+{
+  "name": "browserstack-test",
+  "version": "0.1.0",
+  "description": "Run your unit tests automatically on BrowserStack",
+  "main": "lib/index.js",
+  "directories": {
+    "bin": "bin"
+  },
+  "dependencies": {
+    "browserstack-workers": "=0.1.5",
+    "mocha": "=1.12.0",
+    "optimist": "=0.6.0"
+  },
+  "repository": "",
+  "keywords": [
+    "BrowserStack",
+    "test",
+    "Mocha",
+    "Jasmine"
+  ],
+  "author": "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)",
+  "license": "BSD"
+}
