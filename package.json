@@ -1,6 +1,6 @@
 {
   "name": "browserstack-test",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Run your unit tests automatically on BrowserStack",
   "main": "lib/index.js",
   "directories": {
