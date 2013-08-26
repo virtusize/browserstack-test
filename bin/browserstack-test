@@ -22,6 +22,10 @@ var BrowserStackTest = require('../lib/index'),
       .alias('k', 'key')
       .describe('k', 'Your BrowserStack API key')
 
+      .default('t', 30)
+      .alias('t', 'timeout')
+      .describe('t', 'Timeout for workers')
+
       .boolean('h')
       .alias('h', 'help')
       .describe('h', 'Display this message')
@@ -33,7 +37,7 @@ if (argv.h) {
   var browsers = JSON.parse(fs.readFileSync(argv.b)),
       client = new BrowserStackTest(argv.u, argv.p, argv.k);
 
-  client.createTest(argv._[0], {}, function (err, test) {
+  client.createTest(argv._[0], { timeout: timeout }, function (err, test) {
     if (err) {
       console.log(err);
     } else {
