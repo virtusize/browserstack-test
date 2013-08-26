@@ -37,7 +37,7 @@ if (argv.h) {
   var browsers = JSON.parse(fs.readFileSync(argv.b)),
       client = new BrowserStackTest(argv.u, argv.p, argv.k);
 
-  client.createTest(argv._[0], { timeout: timeout }, function (err, test) {
+  client.createTest(argv._[0], { timeout: argv.t }, function (err, test) {
     if (err) {
       console.log(err);
     } else {
