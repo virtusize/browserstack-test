@@ -24,7 +24,7 @@ var BrowserStackTest = require('../lib/index'),
 
       .default('t', 30)
       .alias('t', 'timeout')
-      .describe('t', 'Timeout for workers')
+      .describe('t', 'Timeout for workers in seconds')
 
       .boolean('h')
       .alias('h', 'help')
